@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@layer base {
+  .bg-primary {
+    @apply bg-orange-700;
+  }
+
+  .text-primary {
+    @apply text-orange-700;
+  }
+}
+
+@layer utilities {
+
+  .stop-scrolling {
+    @apply h-full overflow-hidden
+  }
+}
