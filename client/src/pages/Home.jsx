@@ -6,8 +6,20 @@ import ServiceCard from "../components/ServiceCard";
 import products from "../data/products"
 import services from "../data/services"
 import NavButton from "../components/NavButton";
+import Typed from "typed.js";
+import { useEffect, useRef } from "react";
 
 export default function Home() {
+  const elementRef = useRef(null)
+
+  useEffect(() => {
+    const typed = new Typed(elementRef.current, {
+      strings: ["Step To Success"],
+      typeSpeed: 75
+    })
+    return () => typed.destroy()
+  }, [])
+
   return (
     <div className='space-y-15 md:space-y-24'>
       <section className="hero-section h-full relative" >
@@ -15,9 +27,9 @@ export default function Home() {
           <img className="w-full h-full object-cover " src={bg} alt="consulting image " />
         </div>
         <div className="text absolute top-0 left-0 bg-black/50 h-full w-full flex justify-center items-center">
-          <div className="w-64 md:w-108 text-primary font-semibold text-4xl md:text-6xl">
-            <span className="text-xl md:text-3xl text-white">We Are  A ______________ </span>
-            Step to Success
+          <div className="w-70 md:w-md text-primary font-semibold text-4xl md:text-6xl " >
+            <div className="text-xl md:text-3xl text-white">We Are  A ______________ </div>
+            <span ref={elementRef}>Step to Success</span>
           </div>
         </div>
       </section>
@@ -47,7 +59,7 @@ export default function Home() {
       </section>
 
       <section className="contact py-10 md:py-20 space-y-3 bg-orange-100">
-        <div className="text text-3xl text-center ">Come & Talk To Us</div>
+        <div data-aos="fade-right" className="text text-3xl text-center ">Come & Talk To Us</div>
         <div className="button flex justify-center">
           <NavButton link={'/contact'} text={"Contact Us"} />
         </div>
