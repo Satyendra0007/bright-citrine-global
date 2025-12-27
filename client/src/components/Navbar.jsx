@@ -44,7 +44,7 @@ export default function Navbar() {
           </div>
           <NavLink to="/" >
             <div className="logo flex justify-center items-center gap-2 ">
-              <div className=" w-32">
+              <div className="w-32 h-fit">
                 <img className="w-full rounded-full" src={logo} alt="" />
               </div>
             </div>
