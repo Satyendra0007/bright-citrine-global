@@ -9,6 +9,7 @@ import Typed from "typed.js";
 import { useEffect, useRef } from "react";
 import { motion } from "motion/react"
 import StatCircle from "../components/StateCircle";
+import ReviewCapsule from "../components/ReviewCapsule";
 
 export default function Home() {
   const elementRef = useRef(null)
@@ -49,7 +50,7 @@ export default function Home() {
         <div className="image h-96 md:h-screen ">
           <img className="w-full h-full object-cover " src={bg} alt="consulting image " />
         </div>
-        <motion.div className="text absolute top-0 left-0 bg-black/50 h-full w-full pb-5 flex justify-end md:justify-center md:pb-0 items-center flex-col gap-2 md:gap-8 ">
+        <motion.div className="text absolute top-0 left-0 bg-black/50 h-full w-full flex justify-center  items-center flex-col gap-2 md:gap-8 ">
           <motion.div
             className="w-70 md:w-md text-primary font-semibold text-4xl md:text-6xl "
             initial={{
@@ -75,6 +76,11 @@ export default function Home() {
             <StatCircle value={2} max={5} suffix="B+" label="Value Created" />
           </motion.div>
         </motion.div>
+
+        <div className="absolute bottom-1  md:bottom-10 right-6 md:right-16 z-20">
+          <ReviewCapsule />
+        </div>
+
       </section >
 
       <motion.section className="product container mx-auto"
