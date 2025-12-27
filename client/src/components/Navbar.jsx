@@ -35,7 +35,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="fixed top-2 bg-transparent z-10 w-full  "  >
+      <header className="fixed top-2 bg-transparent z-50 w-full  "  >
         <div className=" mx-auto flex justify-between items-center px-5 py-3 bg-white/30 shadow-xl rounded-full backdrop-blur-sm md:py-3 w-[90%] md:max-w-6xl">
           <div id="hamburger" className="md:hidden cursor-pointer">
             <div className="line w-7 h-0.75  bg-primary m-1.5"></div>
@@ -44,8 +44,8 @@ export default function Navbar() {
           </div>
           <NavLink to="/" >
             <div className="logo flex justify-center items-center gap-2 ">
-              <div className="w-32 h-fit">
-                <img className="w-full rounded-full" src={logo} alt="" />
+              <div className="w-32 h-11">
+                <img className="w-full h-full rounded-full" src={logo} alt="" />
               </div>
             </div>
           </NavLink>
@@ -79,7 +79,7 @@ export default function Navbar() {
         {/* --------------------Nav link for sm devices-------------------- */}
         <div
           id="menu"
-          className="absolute -top-2 -left-72  bg-white  w-60 h-screen border border-gray-400 shadow-xl transition-all duration-700 ease-in-out md:hidden"
+          className="absolute -top-2 -left-72  bg-white  w-60 h-screen border border-gray-400 shadow-xl transition-all duration-700 ease-in-out md:hidden z-50"
         >
           <div className="logo flex justify-center border-b border-b-red-600 py-4 ">
             <div className=" w-44">

@@ -14,9 +14,9 @@ export default function ReviewCapsule() {
           repeat: Infinity,
           ease: "easeInOut",
         }}
-        className="backdrop-blur-md bg-white/80 shadow-lg rounded-full px-3 py-2 md:px-5 md:py-3 flex items-center gap-2 ">
+        className="backdrop-blur-md bg-white/80 shadow-lg rounded-full px-3 py-1.5 md:px-5 md:py-3 flex items-center gap-2 ">
         {/* Avatar */}
-        <div className="w-10 h-10 rounded-full bg-gray-300 overflow-hidden">
+        <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-gray-300 overflow-hidden">
           <img
             src="https://i.pravatar.cc/100"
             alt="client"

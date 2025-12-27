@@ -77,7 +77,11 @@ export default function Home() {
           </motion.div>
         </motion.div>
 
-        <div className="absolute bottom-1  md:bottom-10 right-6 md:right-16 z-20">
+        <div className="absolute bottom-10  md:bottom-10 right-6 md:right-16 z-20">
+          <ReviewCapsule />
+        </div>
+
+        <div className="absolute -bottom-6  md:bottom-25 left-6 md:left-16 z-20">
           <ReviewCapsule />
         </div>
 
@@ -90,7 +94,7 @@ export default function Home() {
         transition={{ duration: 1 }}
       >
         <Heading subhead={"PRODUCT RANGE"} head={"OFFERING"} />
-        <motion.div variants={stagger} className="categories py-7 flex flex-wrap justify-center gap-3">
+        <motion.div variants={stagger} className="categories py-7 flex flex-wrap justify-center gap-5">
           {products.map((product, index) => {
             return <motion.div key={index}
               variants={fadeUP}
@@ -102,7 +106,7 @@ export default function Home() {
             </motion.div>
           })}
         </motion.div>
-        <div className="button flex justify-center ">
+        <div className="button flex justify-center mt-5">
           <NavButton link={'/products'} text={"Explore Products"} />
         </div>
       </motion.section>
@@ -114,7 +118,7 @@ export default function Home() {
         transition={{ duration: 1 }}
       >
         <Heading subhead={"BRIGHT CITRINE GLOBAL"} head={"SERVICES"} />
-        <motion.div variants={fadeZoomUP} className="categories py-7 flex flex-wrap justify-center gap-3">
+        <motion.div variants={fadeZoomUP} className="categories py-7 flex flex-wrap justify-center gap-5">
           {services.map((service, index) => {
             return <motion.div
               key={index}
@@ -127,12 +131,12 @@ export default function Home() {
             </motion.div>
           })}
         </motion.div>
-        <div className="button flex justify-center">
+        <div className="button flex justify-center mt-5">
           <NavButton link={'/services'} text={"Explore Service"} />
         </div>
       </motion.section>
 
-      <section className="contact py-10  md:py-20 space-y-5 bg-orange-100">
+      <section className="contact py-10  md:py-20 bg-orange-100">
         <motion.div
           className="text text-3xl text-center "
           variants={fadeRight}
@@ -142,7 +146,7 @@ export default function Home() {
         >
           Come & Talk To Us
         </motion.div>
-        <div className="button flex justify-center">
+        <div className="button flex justify-center mt-5">
           <NavButton link={'/contact'} text={"Contact Us"} />
         </div>
       </section>
