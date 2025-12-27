@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import navLinks from "../data/navLink"
 import { NavLink } from "react-router-dom";
 import logo from "../assets/Logo.png"
+import { motion } from "motion/react"
 
 
 export default function Navbar() {
@@ -34,14 +35,14 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="fixed top-2 bg-transparent z-10 w-full  ">
+      <header className="fixed top-2 bg-transparent z-10 w-full  "  >
         <div className=" mx-auto flex justify-between items-center px-5 py-3 bg-white/30 shadow-xl rounded-full backdrop-blur-sm md:py-3 w-[90%] md:max-w-6xl">
           <div id="hamburger" className="md:hidden cursor-pointer">
             <div className="line w-7 h-0.75  bg-primary m-1.5"></div>
             <div className="line w-5 h-0.75 bg-primary m-1.5"></div>
             <div className="line w-6 h-0.75 bg-primary m-1.5"></div>
           </div>
-          <NavLink to="/">
+          <NavLink to="/" >
             <div className="logo flex justify-center items-center gap-2 ">
               <div className=" w-32">
                 <img className="w-full rounded-full" src={logo} alt="" />
@@ -53,14 +54,22 @@ export default function Navbar() {
             <nav>
               <ul className="flex gap-7 justify-center items-center text-sm">
                 {navLinks.map(({ name, link }) =>
-                  <li key={name} >
+                  <motion.li
+                    key={name}
+                    whileHover={{
+                      y: -3,
+                      transition: {
+                        duration: 0.5
+                      }
+                    }}
+                  >
                     <NavLink
                       to={link}
-                      className={({ isActive }) => `${isActive ? "bg-primary text-white font-normal" : "text-black font-semibold hover:underline"} cursor-pointer  underline-offset-4 py-1.5 px-3 rounded-md `}
+                      className={({ isActive }) => `${isActive ? "bg-primary text-white font-normal" : "text-black font-semibold"} cursor-pointer  underline-offset-4 py-1.5 px-3 rounded-md `}
                     >
                       {name}
                     </NavLink>
-                  </li>
+                  </motion.li>
                 )}
               </ul>
             </nav>
