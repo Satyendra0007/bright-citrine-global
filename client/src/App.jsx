@@ -6,7 +6,6 @@ import Services from "./pages/Services"
 import Product from "./pages/Product"
 import Contact from "./pages/Contact"
 import Footer from "./components/Footer"
-import "aos/dist/aos.css";
 
 function App() {
 
