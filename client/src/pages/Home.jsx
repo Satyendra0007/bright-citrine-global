@@ -1,7 +1,7 @@
 import bg from "../assets/bg.jpg"
 import CategoryCard from "../components/CategoryCard"
 import Heading from "../components/Heading"
-import ServiceCard from "../components/ServiceCard";
+import ServiceCapsule from "../components/ServiceCapsule";
 import products from "../data/products"
 import services from "../data/services"
 import NavButton from "../components/NavButton";
@@ -10,6 +10,7 @@ import { useEffect, useRef } from "react";
 import { motion } from "motion/react"
 import StatCircle from "../components/StateCircle";
 import ReviewCapsule from "../components/ReviewCapsule";
+import { fadeRight, fadeUP, fadeZoomUP, stagger } from "../utils/motions"
 
 export default function Home() {
   const elementRef = useRef(null)
@@ -21,28 +22,6 @@ export default function Home() {
     })
     return () => typed.destroy()
   }, [])
-
-  const fadeRight = {
-    hidden: { opacity: 0, x: -60 },
-    show: { opacity: 1, x: 0 }
-  }
-
-  const fadeUP = {
-    hidden: { opacity: 0, y: 100 },
-    show: { opacity: 1, y: 0 }
-  }
-
-  const fadeZoomUP = {
-    hidden: { opacity: 0, y: 100, scale: 0 },
-    show: { opacity: 1, y: 0, scale: 1 }
-  }
-
-  const stagger = {
-    hidden: {},
-    show: {
-      transition: { staggerChildren: 0.15 },
-    },
-  };
 
   return (
     <div className='space-y-15 md:space-y-24'>
@@ -77,11 +56,7 @@ export default function Home() {
           </motion.div>
         </motion.div>
 
-        <div className="absolute bottom-10  md:bottom-10 right-6 md:right-16 z-20">
-          <ReviewCapsule />
-        </div>
-
-        <div className="absolute -bottom-6  md:bottom-25 left-6 md:left-16 z-20">
+        <div className="absolute bottom-3  md:bottom-10 right-6 md:right-16 z-20">
           <ReviewCapsule />
         </div>
 
@@ -93,7 +68,7 @@ export default function Home() {
         whileInView="show"
         transition={{ duration: 1 }}
       >
-        <Heading subhead={"PRODUCT RANGE"} head={"OFFERING"} />
+        <Heading subhead={"PRODUCT RANGE"} head={"OFFERINGS"} type={"OUR"} />
         <motion.div variants={stagger} className="categories py-7 flex flex-wrap justify-center gap-5">
           {products.map((product, index) => {
             return <motion.div key={index}
@@ -117,7 +92,7 @@ export default function Home() {
         whileInView="show"
         transition={{ duration: 1 }}
       >
-        <Heading subhead={"BRIGHT CITRINE GLOBAL"} head={"SERVICES"} />
+        <Heading subhead={"BRIGHT CITRINE GLOBAL"} head={"SERVICES"} type={"OUR"} />
         <motion.div variants={fadeZoomUP} className="categories py-7 flex flex-wrap justify-center gap-5">
           {services.map((service, index) => {
             return <motion.div
@@ -127,7 +102,7 @@ export default function Home() {
               whileInView="show"
               transition={{ duration: 0.8 }}
             >
-              <ServiceCard  {...service} />
+              <ServiceCapsule  {...service} />
             </motion.div>
           })}
         </motion.div>
