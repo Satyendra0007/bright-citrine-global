@@ -37,7 +37,7 @@ export default function About() {
           >
             <img className="w-full " src={about} alt="people image" />
           </motion.div>
-          <div className="desc mt-5 md:mt-0 space-y-4 p-3">
+          <div className="desc mt-5 md:mt-0 space-y-4 p-6 md:p-3">
             <h3 className="text-lg font-semibold "><span className="text-primary font-serif font-semibold text-2xl">Bright Citrine Global</span> focuses on trading in niche products.</h3>
             <p className="text-gray-900 font-serif text-justify">
               CG specializes in international trade partnering with over 38 countries.<br />

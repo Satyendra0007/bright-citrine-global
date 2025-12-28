@@ -7,7 +7,7 @@ export default function IntroSection({ text }) {
       <div className="image h-full ">
         <img className="w-full h-full object-cover" src={absbg} alt="background image " />
       </div>
-      <div className="text absolute top-0 left-0 bg-black/40 backdrop-blur-sm h-full w-full flex justify-center items-center">
+      <div className="text absolute top-0 left-0 bg-black/30 backdrop-blur-sm h-full w-full flex justify-center items-center">
         <motion.div
           className="md:w-md  text-center font-semibold text-3xl md:text-4xl"
           initial={{
