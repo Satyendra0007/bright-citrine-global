@@ -3,7 +3,7 @@ import Heading from '../components/Heading'
 import ServiceCard from '../components/ServiceCard'
 import services from '../data/services'
 import { motion } from "motion/react"
-import { fadeUP, fadeRight } from "../utils/motions"
+import { fadeUP, fadeRight,stagger } from "../utils/motions"
 import { MdOutlineMail } from "react-icons/md";
 import logo1 from "../assets/flags/logo-1.jpeg"
 import logo2 from "../assets/flags/logo-2.jpg"
@@ -29,7 +29,7 @@ export default function Services() {
         transition={{ duration: 1 }}
       >
         <Heading head={"OFFER"} subhead={"CREATIVE HUB"} type={"WHAT WE "} />
-        <motion.div variants={fadeUP} className="boxes flex justify-center items-center flex-wrap gap-7 mt-8">
+        <motion.div variants={stagger} className="boxes flex justify-center items-center flex-wrap gap-7 mt-8">
           {services.map((service, index) => {
             return <motion.div
               key={index}

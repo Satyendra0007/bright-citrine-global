@@ -1,10 +1,14 @@
 import IntroSection from "../components/IntroSection";
 import ContactCard from "../components/ContactCard";
-import { FaUser, FaEnvelope, FaPhoneAlt, FaPen, FaWhatsapp, FaMapMarkerAlt } from "react-icons/fa";
-import Input from "../components/Input";
-
+import { FaEnvelope, FaWhatsapp, FaMapMarkerAlt } from "react-icons/fa";
+import Form from "../components/Form";
 
 export default function Contact() {
+
+  const handleOnSubmit = (data) => {
+    console.log(data)
+  }
+
   return (
     <div className=''>
       <section className="hero-section" >
@@ -38,42 +42,7 @@ export default function Contact() {
       </section>
 
       <section className="form">
-        <form className="bg-white rounded-3xl shadow-xl border border-gray-300 p-10 max-w-3xl mx-auto space-y-8">
-
-          <h2 className="text-3xl font-semibold text-center tracking-tight">
-            Let’s Talk
-          </h2>
-
-          {/* Row 1 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Input icon={<FaUser />} placeholder="Your Name" />
-            <Input icon={<FaEnvelope />} placeholder="Email Address" />
-          </div>
-
-          {/* Row 2 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Input icon={<FaPhoneAlt />} placeholder="Phone Number" />
-            <Input icon={<FaPen />} placeholder="Subject" />
-          </div>
-
-          {/* Message */}
-          <div className="bg-gray-100 rounded-2xl p-4">
-            <textarea
-              rows="5"
-              placeholder="Your Message"
-              className=" w-full bg-transparent outline-none resize-none text-sm placeholder-gray-500 "
-            />
-          </div>
-
-          {/* Submit */}
-          <button
-            type="submit"
-            className=" w-full md:w-auto px-12 py-3 rounded-full bg-primary text-white font-semibold shadow-md hover:shadow-lg tansition"
-          >
-            Send Message
-          </button>
-
-        </form>
+        <Form text={"Contact Us"} handleOnSubmit={handleOnSubmit} />
       </section>
     </div>
   )

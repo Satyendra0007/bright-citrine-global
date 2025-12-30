@@ -31,7 +31,7 @@ export default function Home() {
         </div>
         <motion.div className="text absolute top-0 left-0 bg-black/50 h-full w-full flex justify-center  items-center flex-col gap-2 md:gap-8 ">
           <motion.div
-            className="w-70 md:w-md text-primary font-semibold text-4xl md:text-6xl "
+            className="w-70 md:w-lg text-primary font-semibold text-4xl md:text-6xl "
             initial={{
               opacity: 0
             }}
@@ -62,6 +62,31 @@ export default function Home() {
 
       </section >
 
+      <motion.section className="services container mx-auto"
+        variants={fadeUP}
+        initial="hidden"
+        whileInView="show"
+        transition={{ duration: 1 }}
+      >
+        <Heading subhead={"BRIGHT CITRINE GLOBAL"} head={"SERVICES"} type={"OUR"} />
+        <motion.div variants={stagger} className="categories py-7 flex flex-wrap justify-center gap-5">
+          {services.map((service, index) => {
+            return <motion.div
+              key={index}
+              variants={fadeZoomUP}
+              initial="hidden"
+              whileInView="show"
+              transition={{ duration: 0.8 }}
+            >
+              <ServiceCapsule  {...service} />
+            </motion.div>
+          })}
+        </motion.div>
+        <div className="button flex justify-center mt-5">
+          <NavButton link={'/services'} text={"Explore Service"} />
+        </div>
+      </motion.section>
+
       <motion.section className="product container mx-auto"
         variants={fadeUP}
         initial="hidden"
@@ -83,31 +108,6 @@ export default function Home() {
         </motion.div>
         <div className="button flex justify-center mt-5">
           <NavButton link={'/products'} text={"Explore Products"} />
-        </div>
-      </motion.section>
-
-      <motion.section className="services container mx-auto"
-        variants={fadeUP}
-        initial="hidden"
-        whileInView="show"
-        transition={{ duration: 1 }}
-      >
-        <Heading subhead={"BRIGHT CITRINE GLOBAL"} head={"SERVICES"} type={"OUR"} />
-        <motion.div variants={fadeZoomUP} className="categories py-7 flex flex-wrap justify-center gap-5">
-          {services.map((service, index) => {
-            return <motion.div
-              key={index}
-              variants={fadeZoomUP}
-              initial="hidden"
-              whileInView="show"
-              transition={{ duration: 0.8 }}
-            >
-              <ServiceCapsule  {...service} />
-            </motion.div>
-          })}
-        </motion.div>
-        <div className="button flex justify-center mt-5">
-          <NavButton link={'/services'} text={"Explore Service"} />
         </div>
       </motion.section>
 

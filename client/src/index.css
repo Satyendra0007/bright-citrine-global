@@ -15,4 +15,8 @@
   .stop-scrolling {
     @apply h-full overflow-hidden
   }
+
+  .stop-scroll {
+    @apply h-full overflow-hidden
+  }
 }
