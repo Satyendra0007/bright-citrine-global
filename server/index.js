@@ -10,7 +10,7 @@ const app = express()
 const PORT = 3000
 app.use(express.json())
 app.use(cors({
-  origin: "*"
+  origin: process.env.FRONTEND_URI
 }))
 
 app.use("/api/auth", authRoute)
