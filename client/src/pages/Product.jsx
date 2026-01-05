@@ -6,6 +6,8 @@ import { fadeUP, stagger } from "../utils/motions"
 import { motion } from "motion/react"
 import { useState } from 'react'
 import Form from '../components/Form'
+import axios from 'axios'
+import toast from 'react-hot-toast'
 
 export default function Product() {
   const [showForm, setShowForm] = useState(false)
@@ -20,9 +22,17 @@ export default function Product() {
     })
   }
 
-  const handleOnSubmit = (data) => {
-    console.log(data)
-    handleToogleForm()
+  const handleOnSubmit = async (userInput) => {
+    try {
+      const { data } = await axios.post(`${import.meta.env.VITE_SERVER_URL}/api/contact`, userInput)
+      toast.success(data.message)
+      handleToogleForm()
+      return { success: true }
+    } catch (error) {
+      console.log(error?.message)
+      toast.error(error?.response?.data?.message)
+      return { success: false }
+    }
   }
 
   return (
@@ -52,7 +62,7 @@ export default function Product() {
         </motion.div>
       </motion.section >
 
-      {showForm && <section className="form fixed top-0 left-0  right-0  w-full min-h-screen bg-white pt-10 md:pt-25 overflow-scroll">
+      {showForm && <section className="form fixed inset-0 w-full min-h-screen bg-white pt-10 md:pt-25 overflow-scroll">
         <Form text={"Request a quote"} handleOnSubmit={handleOnSubmit} handleToogleForm={handleToogleForm} />
       </section>}
 

@@ -3,9 +3,12 @@ import navLinks from "../data/navLink"
 import { NavLink } from "react-router-dom";
 import logo from "../assets/Logo.png"
 import { motion } from "motion/react"
+import { useContextStore } from "../store/ContextStore";
+import { FaEnvelopeOpenText } from "react-icons/fa";
 
 
 export default function Navbar() {
+  const { userData } = useContextStore()
 
   useEffect(() => {
 
@@ -52,7 +55,7 @@ export default function Navbar() {
           {/* --------------------Nav link for md and lg devices-------------------- */}
           <div className="navLink hidden my-auto md:block ">
             <nav>
-              <ul className="flex gap-7 justify-center items-center text-sm">
+              <ul className="flex gap-2 lg:gap-7 justify-center items-center text-sm">
                 {navLinks.map(({ name, link }) =>
                   <motion.li
                     key={name}
@@ -71,6 +74,23 @@ export default function Navbar() {
                     </NavLink>
                   </motion.li>
                 )}
+
+                {userData?.isAdmin && <motion.li
+                  whileHover={{
+                    y: -3,
+                    transition: {
+                      duration: 0.5
+                    }
+                  }}
+                >
+                  <NavLink
+                    to="/admin/messages"
+                    className={({ isActive }) => `${isActive ? "bg-primary text-white font-normal" : "text-black font-semibold"} cursor-pointer  underline-offset-4 py-1.5 px-3 rounded-md `}
+                  >
+                    Messages
+                  </NavLink>
+                </motion.li>}
+
               </ul>
             </nav>
           </div>
@@ -99,6 +119,17 @@ export default function Navbar() {
                   </NavLink>
                 </li>
               )}
+
+              <li>
+                <NavLink
+                  to="/admin/messages"
+                  className={({ isActive }) => `${isActive ? "bg-red-200  font-normal" : "font-semibold "} text-xs py-4 px-2 cursor-pointer text-primary  border-b border-red-200 flex gap-3 items-center`}
+                >
+                  <FaEnvelopeOpenText size={18} />
+                  Messages
+                </NavLink>
+              </li>
+
             </ul>
           </nav>
         </div>

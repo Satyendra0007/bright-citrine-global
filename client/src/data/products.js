@@ -1,6 +1,6 @@
 import cement from "../assets/cement.jpeg"
-import meat from "../assets/meat.webp"
 import rice from "../assets/rice.jpg"
+import lamb from "../assets/lamb.webp"
 
 const products = [
   {
@@ -21,7 +21,7 @@ const products = [
   },
   {
     name: "Fresh Chilled Lamb Meat",
-    url: meat,
+    url: lamb,
     shortDesc:
       "Hygienically processed fresh lamb meat supplied with cold-chain assurance.",
     longDesc:

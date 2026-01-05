@@ -2,11 +2,21 @@ import IntroSection from "../components/IntroSection";
 import ContactCard from "../components/ContactCard";
 import { FaEnvelope, FaWhatsapp, FaMapMarkerAlt } from "react-icons/fa";
 import Form from "../components/Form";
+import axios from "axios"
+import toast from "react-hot-toast";
 
 export default function Contact() {
 
-  const handleOnSubmit = (data) => {
-    console.log(data)
+  const handleOnSubmit = async (userInput) => {
+    try {
+      const { data } = await axios.post(`${import.meta.env.VITE_SERVER_URL}/api/contact`, userInput)
+      toast.success(data.message)
+      return { success: true }
+    } catch (error) {
+      console.log(error?.message)
+      toast.error(error?.response?.data?.message)
+      return { success: false }
+    }
   }
 
   return (
