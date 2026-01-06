@@ -9,13 +9,11 @@ const authRoute = require("./auth/auth.route")
 const app = express()
 const PORT = 3000
 app.use(express.json())
-// app.use(cors({
-//   origin: process.env.FRONTEND_URI,
-//   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
-//   credentials: true
-// }))
-
-app.use(cors())
+app.use(cors({
+  origin: process.env.FRONTEND_URI,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
+  credentials: true
+}))
 
 app.use("/api/auth", authRoute)
 app.use("/api/contact", contactRoute)
